@@ -1,0 +1,199 @@
+/* ============================================================
+   AddAppointmentForm.css – Slide-out form panel styles
+   ============================================================ */
+
+/* Toggle button in the toolbar */
+.btn-add-appointment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 8px rgba(26, 60, 110, 0.35);
+  letter-spacing: 0.3px;
+}
+
+.btn-add-appointment:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(26, 60, 110, 0.4);
+}
+
+/* ── Form Card ─────────────────────────────────────────────── */
+.add-form-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+.add-form-card__header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0f2547 100%);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-form-card__header h3 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-close-form {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background var(--transition);
+}
+
+.btn-close-form:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ── Form Grid ─────────────────────────────────────────────── */
+.add-form {
+  padding: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group--full {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--color-text-muted);
+}
+
+.form-label span {
+  color: var(--color-danger);
+  margin-left: 2px;
+}
+
+.form-input,
+.form-select {
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+  background: var(--color-surface);
+}
+
+.form-input.form-input--error {
+  border-color: var(--color-danger);
+}
+
+.form-error-msg {
+  font-size: 0.76rem;
+  color: var(--color-danger);
+  margin-top: 2px;
+}
+
+/* ── Submit Row ────────────────────────────────────────────── */
+.form-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+  color: #fff;
+  padding: 11px 28px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: opacity var(--transition), transform var(--transition);
+  box-shadow: 0 2px 8px rgba(26, 60, 110, 0.3);
+}
+
+.btn-submit:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-reset {
+  background: transparent;
+  color: var(--color-text-muted);
+  padding: 11px 20px;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1.5px solid var(--color-border);
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.btn-reset:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.form-success-msg {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

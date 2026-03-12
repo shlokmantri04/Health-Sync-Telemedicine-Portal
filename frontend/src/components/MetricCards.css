@@ -1,0 +1,98 @@
+/* ============================================================
+   MetricCards.css – KPI metric cards at the top of the dashboard
+   ============================================================ */
+
+.metric-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.metric-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-left: 5px solid transparent;
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0.07;
+  background: currentColor;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Colour variants */
+.metric-card--heart {
+  border-left-color: #e11d48;
+  color: #e11d48;
+}
+
+.metric-card--pending {
+  border-left-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.metric-card__icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.metric-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-card__label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.metric-card__value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.metric-card__unit {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.metric-card--loading .metric-card__value {
+  width: 80px;
+  height: 32px;
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}

@@ -1,0 +1,36 @@
+# render.yaml
+# Blueprint for Render.com Deployment
+
+services:
+  # 1. MongoDB Database (Using Render's native PostgreSQL or deploying Mongo as Private Service)
+  # NOTE: Render doesn't have native managed MongoDB. 
+  # It is highly recommended to use MongoDB Atlas for the database, 
+  # and supply the connection string as MONGO_URI to the backend!
+
+  # 2. Node.js Backend Service
+  - type: web
+    name: health-sync-backend
+    env: docker
+    region: ohio
+    plan: free
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false # You will need to input your Mongo Atlas URI in the Render Dashboard
+
+  # 3. React Frontend Service
+  - type: web
+    name: health-sync-frontend
+    env: docker
+    region: ohio
+    plan: free
+    dockerContext: ./frontend
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: REACT_APP_API_URL
+        value: "https://health-sync-backend.onrender.com" # Ensure this matches the actual backend URL Render provides
