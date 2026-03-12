@@ -70,12 +70,4 @@ npm start
 3. Add a new Environment Variable: `REACT_APP_API_URL` matching your newly generated Render Backend URL.
 4. Deploy! Vercel will install dependencies and optimize the React build instantly across its edge network.
 
-## 📜 API Reference (Internal)
 
-| Endpoint | Method | Protected | Description |
-| :--- | :---: | :---: | :--- |
-| `/api/auth/register` | `POST` | ❌ | Registers a new Doctor |
-| `/api/auth/login` | `POST` | ❌ | Authenticates a Doctor and returns a JWT |
-| `/api/appointments` | `GET` | 🔒 | Retrieves all patient appointments |
-| `/api/appointments` | `POST` | 🔒 | Creates a new patient appointment |
-| `/api/appointments/health-summary` | `GET` | 🔒 | Executes MongoDB aggregation for analytical metrics |
