@@ -18,7 +18,7 @@
   --color-text:          #1e293b;   /* primary body text                  */
   --color-text-muted:    #64748b;   /* secondary / label text             */
 
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-sans: "Times New Roman", Times, serif;
 
   --radius-sm:  6px;
   --radius-md:  10px;
